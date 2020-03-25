@@ -1,28 +1,44 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div>
+    <div>n 的zhi为{{n}}</div>
+    <div class="row">
+      <Cell @click="onClickCell" v-bind:n = "n"/>
+      <Cell @click="onClickCell" v-bind:n = "n"/>
+      <Cell @click="onClickCell" v-bind:n = "n"/>
+    </div>
+     <div class="row">
+      <Cell @click="onClickCell" v-bind:n = "n"/>
+      <Cell @click="onClickCell" v-bind:n = "n"/>
+      <Cell @click="onClickCell" v-bind:n = "n"/>
+    </div>
+     <div class="row">
+      <Cell @click="onClickCell" v-bind:n = "n"/>
+      <Cell @click="onClickCell" v-bind:n = "n"/>
+      <Cell @click="onClickCell" v-bind:n = "n"/>
+    </div>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
+import Cell from "./Cell";
 export default {
-  name: 'App',
-  components: {
-    HelloWorld
+  components: { Cell },
+  data(){
+    return{ n :0};
+  },
+  methods:{
+    onClickCell(){
+      console.log("某个Cell被点了")
+        this.n += 1;
+    }
   }
-}
+};
+
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+.row{
+  display: flex;
+
 }
 </style>
